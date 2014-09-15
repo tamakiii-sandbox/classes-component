@@ -1,6 +1,6 @@
 <?php
 
-namespace Concretehouse\Component\Test\Unit\Classes;
+namespace Concretehouse\Component\Classes\Test\Unit;
 
 use Concretehouse\Component\Classes\Functions;
 use Phake;
@@ -49,7 +49,7 @@ class FunctionsTest extends \PHPUnit_Framework_TestCase
      */
     public function canRegisterAutoloadCallback()
     {
-        $resolver = Phake::mock('Concretehouse\Component\Test\Unit\Classes\Resolver');
+        $resolver = Phake::mock(__NAMESPACE__ . '\Resolver');
         Phake::when($resolver)
             ->resolve('hoge2')
             ->thenReturn('\\' . __NAMESPACE__ . '\Hoge');

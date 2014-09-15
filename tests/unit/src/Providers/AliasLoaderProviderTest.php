@@ -1,6 +1,6 @@
 <?php
 
-namespace Concretehouse\Component\Test\Unit\Classes\Providers;
+namespace Concretehouse\Component\Classes\Test\Unit\Providers;
 
 use Concretehouse\Component\Classes\Providers\AliasLoaderProvider;
 use Phake;

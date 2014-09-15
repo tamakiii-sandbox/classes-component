@@ -1,6 +1,6 @@
 <?php
 
-namespace Concretehouse\Component\Test\Unit\Classes;
+namespace Concretehouse\Component\Classes\Test\Unit;
 
 use Phake;
 
