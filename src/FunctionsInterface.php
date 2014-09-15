@@ -14,4 +14,12 @@ interface FunctionsInterface
      * @return boolean
      */
     public function classAlias($original, $alias, $autoload = true);
+
+    /**
+     * @param callable $callable
+     * @param boolean $throw
+     * @param boolean $prepend
+     * @return boolean
+     */
+    public function splAutoloadRegister($callable, $throw = true, $prepend = false);
 }
