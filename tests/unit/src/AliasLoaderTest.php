@@ -30,6 +30,14 @@ class AliasLoaderTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function implementsAliasLoaderInterface()
+    {
+        $this->assertInstanceOf('Concretehouse\Component\Classes\AliasLoaderInterface', $this->loader);
+    }
+
+    /**
+     * @test
+     */
     public function canResolveWithAliasesPassedToConstructor()
     {
         $this->assertTrue($this->loader->resolve('hoge'));

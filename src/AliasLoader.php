@@ -5,7 +5,7 @@ namespace Concretehouse\Component\Classes;
 /**
  * Class alias loader class.
  */
-class AliasLoader
+class AliasLoader implements AliasLoaderInterface
 {
     /**
      * @var FunctionsInterface
