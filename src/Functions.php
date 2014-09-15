@@ -17,4 +17,15 @@ class Functions implements FunctionsInterface
     {
         return class_alias($original, $alias, $autoload);
     }
+
+    /**
+     * @param callable $callable
+     * @param boolean $throw
+     * @param boolean $prepend
+     * @return boolean
+     */
+    public function splAutoloadRegister($callable, $throw = true, $prepend = false)
+    {
+        return spl_autoload_register($callable, $throw, $prepend);
+    }
 }
