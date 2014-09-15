@@ -15,7 +15,12 @@ class AliasLoader
     /**
      * @var array
      */
-    private $aliases;
+    private $aliases = array();
+
+    /**
+     * @var boolean
+     */
+    private $registered = false;
 
 
     /**
@@ -27,7 +32,6 @@ class AliasLoader
         array $aliases = array()
     ) {
         $this->functions = $functions;
-        $this->aliases = array();
         $this->adds($aliases);
     }
 
@@ -86,5 +90,17 @@ class AliasLoader
             $this->aliases[$name] = array();
         }
         $this->aliases[$name][] = array($alias, $autoload);
+    }
+
+    /**
+     * Register class with spl_autoload_register()
+     */
+    public function register()
+    {
+        if ($this->registered === false) {
+            $callback = array($this, 'resolve');
+            $this->functions->splAutoloadRegister($callback, true, true);
+            $this->registered = true;
+        }
     }
 }

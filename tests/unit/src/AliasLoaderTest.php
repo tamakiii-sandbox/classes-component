@@ -111,4 +111,36 @@ class AliasLoaderTest extends \PHPUnit_Framework_TestCase
         Phake::verify($this->functions, Phake::times(1))
             ->classAlias('NeoFugaClass', 'fuga', true);
     }
+
+    /**
+     * @test
+     */
+    public function canRegister()
+    {
+        $this->loader->register();
+
+        Phake::verify($this->functions, Phake::times(1))
+            ->splAutoloadRegister(
+                array($this->loader, 'resolve'),
+                true,
+                true
+            );
+    }
+
+    /**
+     * @test
+     */
+    public function canRegisterOnlyOnce()
+    {
+        $this->loader->register();
+        $this->loader->register();
+        $this->loader->register();
+
+        Phake::verify($this->functions, Phake::times(1))
+            ->splAutoloadRegister(
+                array($this->loader, 'resolve'),
+                true,
+                true
+            );
+    }
 }
